@@ -1,37 +1,52 @@
-# Matriz del menú del restaurante
-menu = [
+# ============================================
+# Fase 5 - Componente práctico
+# Problema 3: menu restaurante
+# Estudiante: Max Felipe Estupiñan
+# Programa: Ingeniería de Telecomunicaciones
+# ============================================
+
+
+||
+
+# Menú del restaurante
+productos = [
     ["Hamburguesa", "Comida Rapida", 25000],
-    ["Pizza", "Comida Rapida", 30000],
+    ["Qbano", "Comida Rapida", 30000],
     ["Ensalada", "Saludable", 18000],
-    ["Jugo Natural", "Bebidas", 12000],
-    ["Pasta", "Italiana", 35000],
-    ["Lasagna", "Italiana", 40000]
+    ["Limonada de coco", "Bebidas", 12000],
+    ["Pasta Napolitana", "Pasta", 35000],
+    ["Lasagna", "Pasta", 40000]
 ]
 
-# Función para calcular precio final
-def calcular_precio(categoria, precio):
+# Función para calcular el precio final
+def calcular_total(nombre_categoria, precio_base):
 
-    if categoria == "Italiana" and precio > 30000:
-        precio_final = int(precio - (precio * 0.15))
-    else:
-        precio_final = precio
+    descuento = 0
 
-    return precio_final
+    # Verificar si aplica promoción
+    if nombre_categoria == "Pasta":
+        if precio_base > 30000:
+            descuento = precio_base * 0.15
+
+    # Calcular precio final
+    precio_final = precio_base - descuento
+
+    return int(precio_final)
 
 
-# Mostrar resultados
-print("MENU DEL RESTAURANTE")
+print("------ MENU DEL RESTAURANTE ------")
 
-for producto in menu:
+# Recorrer productos del menú
+for dato in productos:
 
-    nombre = producto[0]
-    categoria = producto[1]
-    precio = producto[2]
+    producto = dato[0]
+    categoria = dato[1]
+    valor = dato[2]
 
-    precio_final = calcular_precio(categoria, precio)
+    total = calcular_total(categoria, valor)
 
-    print("----------------------")
-    print("Producto:", nombre)
+    print("-----------------------------")
+    print("Producto:", producto)
     print("Categoria:", categoria)
-    print("Precio base:", precio)
-    print("Precio final:", precio_final)
+    print("Precio base: $", valor)
+    print("Precio final: $", total)
