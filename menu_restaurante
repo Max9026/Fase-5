@@ -1,12 +1,12 @@
 # ============================================
 # Fase 5 - Componente práctico
-# Problema 3: menu restaurante
+# Problema 2: menu restaurante
 # Estudiante: Max Felipe Estupiñan
 # Programa: Ingeniería de Telecomunicaciones
 # ============================================
 
 
-||
+
 
 # Menú del restaurante
 productos = [
